@@ -1,3 +1,4 @@
+#!/usr/local/bin/ruby -w
 require "open-uri"
 
 firstname_list = open("https://raw.githubusercontent.com/dominictarr/random-name/master/first-names.txt")
