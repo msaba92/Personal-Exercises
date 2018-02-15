@@ -1,12 +1,11 @@
 #!/usr/local/bin/ruby -w
 
-
 def headtails
     coin = rand(0..1)
-    if coin == 0
-        puts "Heads!"
+    if coin.zero?
+        puts 'Heads!'
     elsif coin == 1
-        puts "Tails!"
+        puts 'Tails!'
     end
 end
 
@@ -14,41 +13,41 @@ def higherlower
     target = 100
     major = target
     minor = 0
-    puts "Think of a number between 1 and 100."
-    while true
+    puts 'Think of a number between 1 and 100.'
+    loop do
         print "Is it #{target}? Y/H/L "
         answer = gets.chomp
-        if answer.downcase == "y"
-            puts "I did it!"
+        if answer.downcase == 'y'
+            puts 'I did it!'
             break
         else
-            if answer.downcase == "l"
+            if answer.downcase == 'l'
                 major = target
-            elsif answer.downcase == "h"
+            elsif answer.downcase == 'h'
                 minor = target
             end
-            targetarray = Array (minor..major)
+            targetarray = Array(minor..major)
             target = targetarray[targetarray.length / 2]
             if major == minor
-                puts "Make up your mind!"
+                puts 'Make up your mind!'
                 break
             end
-            if (major - minor == 1)
-                puts "Make up your mind!"
+            if major - minor == 1
+                puts 'Make up your mind!'
                 break
             end
         end
     end
 end
 
-while true
-    print "Please select: 1 for coin flip, 2 for higher/lower. "
+loop do
+    print 'Please select: 1 for coin flip, 2 for higher/lower. '
     choice = gets.chomp
-    break if choice == "1" or choice == "2"
-end
-
-if choice == "1"
-    headtails
-else
-    higherlower
+    if [1, 2].include? choice.to_i
+        if choice == '1'
+            headtails
+        else
+            higherlower
+        end
+    end
 end
